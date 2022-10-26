@@ -54,6 +54,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'draft_generators', github: 'firstdraft/draft_generators'
   gem 'rails_db', '2.3.1'
+  gem 'solargraph'
   gem 'rufo'
   gem 'htmlbeautifier'
 end
@@ -62,6 +63,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'webmock'
   gem 'rspec-html-matchers'
   gem 'selenium-webdriver'
