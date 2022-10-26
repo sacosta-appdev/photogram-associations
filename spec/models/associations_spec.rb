@@ -1,19 +1,19 @@
 require "rails_helper"
 
 RSpec.describe Photo, type: :model do
-  describe "has a belongs_to association defined called 'poster' with Class name 'User' and foreign key 'owner_id'", points: 2 do
+  describe "has a belongs_to association defined called 'poster' with Class name 'User' and foreign key 'owner_id'", points: 1 do
     it { should belong_to(:poster).class_name("User").with_foreign_key("owner_id") }
   end
 end
 
 RSpec.describe Photo, type: :model do
-  describe "has a has_many association defined called 'comments' with Class name 'Comment' and foreign key 'photo_id'", points: 2 do
+  describe "has a has_many association defined called 'comments' with Class name 'Comment' and foreign key 'photo_id'", points: 1 do
     it { should have_many(:comments).class_name("Comment").with_foreign_key("photo_id") }
   end
 end
 
 RSpec.describe Photo, type: :model do
-  describe "has a has_many association defined called 'likes' with Class name 'Like' and foreign key 'photo_id'", points: 2 do
+  describe "has a has_many association defined called 'likes' with Class name 'Like' and foreign key 'photo_id'", points: 1 do
     it { should have_many(:likes).class_name("Like").with_foreign_key("photo_id") }
   end
 end
@@ -26,55 +26,55 @@ end
 
 
 RSpec.describe Comment, type: :model do
-  describe "has a belongs_to association defined called 'commenter' with Class name 'User' and foreign key 'author_id'", points: 2 do
+  describe "has a belongs_to association defined called 'commenter' with Class name 'User' and foreign key 'author_id'", points: 1 do
     it { should belong_to(:commenter).class_name("User").with_foreign_key("author_id") }
   end
 end
 
 RSpec.describe Comment, type: :model do
-  describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'owner_id'", points: 2 do
+  describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'owner_id'", points: 1 do
     it { should belong_to(:photo).class_name("Photo").with_foreign_key("photo_id") }
   end
 end
 
 RSpec.describe FollowRequest, type: :model do
-  describe "has a belongs_to association defined called 'sender' with Class name 'User' and foreign key 'sender_id'", points: 2 do
+  describe "has a belongs_to association defined called 'sender' with Class name 'User' and foreign key 'sender_id'", points: 1 do
     it { should belong_to(:sender).class_name("User").with_foreign_key("sender_id") }
   end
 end
 
 RSpec.describe FollowRequest, type: :model do
-  describe "has a belongs_to association defined called 'recipient' with Class name 'User' and foreign key 'recipient_id'", points: 2 do
+  describe "has a belongs_to association defined called 'recipient' with Class name 'User' and foreign key 'recipient_id'", points: 1 do
     it { should belong_to(:recipient).class_name("User").with_foreign_key("recipient_id") }
   end
 end
 
 RSpec.describe Like, type: :model do
-  describe "has a belongs_to association defined called 'fan' with Class name 'User' and foreign key 'fan_id'", points: 2 do
+  describe "has a belongs_to association defined called 'fan' with Class name 'User' and foreign key 'fan_id'", points: 1 do
     it { should belong_to(:fan).class_name("User").with_foreign_key("fan_id") }
   end
 end
 
 RSpec.describe Like, type: :model do
-  describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'photo_id'", points: 2 do
+  describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'photo_id'", points: 1 do
     it { should belong_to(:photo).class_name("Photo").with_foreign_key("photo_id") }
   end
 end
 
 RSpec.describe User, type: :model do
-  describe "has a has_many association defined called 'comments' with Class name 'Comment' and foreign key 'author_id'", points: 2 do
+  describe "has a has_many association defined called 'comments' with Class name 'Comment' and foreign key 'author_id'", points: 1 do
     it { should have_many(:comments).class_name("Comment").with_foreign_key("author_id") }
   end
 end
 
 RSpec.describe User, type: :model do
-  describe "has a belongs_to association defined called 'own_photos' with Class name 'Photo' and foreign key 'owner_id'", points: 2 do
+  describe "has a belongs_to association defined called 'own_photos' with Class name 'Photo' and foreign key 'owner_id'", points: 1 do
     it { should have_many(:own_photos).class_name("Photo").with_foreign_key("owner_id") }
   end
 end
 
 RSpec.describe User, type: :model do
-  describe "has a belongs_to association defined called 'likes' with Class name 'Like' and foreign key 'fan_id'", points: 2 do
+  describe "has a belongs_to association defined called 'likes' with Class name 'Like' and foreign key 'fan_id'", points: 1 do
     it { should have_many(:likes).class_name("Like").with_foreign_key("fan_id") }
   end
 end
