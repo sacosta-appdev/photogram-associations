@@ -22,4 +22,14 @@ class Comment < ApplicationRecord
 
   #   return the_user
   # end
+
+  # def photo
+  #   my_photo_id = self.photo_id
+
+  #   matching_photos = User.where({ :id => my_photo_id })
+
+  #   the_photo = matching_photos.at(0)
+
+  #   return the_photo
+  # end
 end
