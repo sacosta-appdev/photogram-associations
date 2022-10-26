@@ -49,3 +49,4 @@ core.chrome*
 !vendor/
 vendor/bundle/*
 !vendor/bundle/.keep
+.vscode/.ltici_apitoken.yml

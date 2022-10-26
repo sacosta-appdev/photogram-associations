@@ -7,10 +7,12 @@ GIT
 
 GIT
   remote: https://github.com/firstdraft/grade_runner.git
-  revision: 93e5954a4c7e0e23395644039d4bd26e2411a3c6
+  revision: f39b09a16e937f9219f1201113ff23ce2a67e75d
   specs:
-    grade_runner (0.0.3.pre.3)
-      oj
+    grade_runner (0.0.5)
+      faraday-retry (~> 1.0.3)
+      octokit (~> 5.0)
+      oj (~> 3.10.6)
 
 GIT
   remote: https://github.com/firstdraft/web_git.git
@@ -137,6 +139,11 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.6.0)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.1)
+    faraday-retry (1.0.3)
     ffi (1.15.5)
     ffi (1.15.5-java)
     ffi (1.15.5-x64-mingw32)
@@ -191,7 +198,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.7-x86-mingw32)
       racc (~> 1.4)
-    oj (3.13.11)
+    octokit (5.6.1)
+      faraday (>= 1, < 3)
+      sawyer (~> 0.9)
+    oj (3.10.18)
     orm_adapter (0.5.0)
     pg (1.3.5)
     pg (1.3.5-x64-mingw32)
@@ -303,10 +313,15 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sawyer (0.9.2)
+      addressable (>= 2.3.5)
+      faraday (>= 0.17.3, < 3)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -398,6 +413,7 @@ DEPENDENCIES
   rufo
   sassc-rails
   selenium-webdriver
+  shoulda-matchers (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   sprockets (< 4)
