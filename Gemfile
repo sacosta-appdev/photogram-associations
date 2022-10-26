@@ -54,6 +54,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'draft_generators', github: 'firstdraft/draft_generators'
   gem 'rails_db', '2.3.1'
+  gem 'solargraph'
   gem 'rufo'
   gem 'htmlbeautifier'
 end
