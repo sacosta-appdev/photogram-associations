@@ -31,6 +31,11 @@ RSpec.describe Comment, type: :model do
   end
 end
 
+RSpec.describe Comment, type: :model do
+  describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'owner_id'", points: 2 do
+    it { should belong_to(:photo).class_name("Photo").with_foreign_key("photo_id") }
+  end
+end
 
 RSpec.describe FollowRequest, type: :model do
   describe "has a belongs_to association defined called 'sender' with Class name 'User' and foreign key 'sender_id'", points: 2 do
@@ -52,7 +57,7 @@ end
 
 RSpec.describe Like, type: :model do
   describe "has a belongs_to association defined called 'photo' with Class name 'Photo' and foreign key 'photo_id'", points: 2 do
-    it { should belong_to(:photo).class_name("User").with_foreign_key("photo_id") }
+    it { should belong_to(:photo).class_name("Photo").with_foreign_key("photo_id") }
   end
 end
 
@@ -87,13 +92,48 @@ RSpec.describe User, type: :model do
 end
 
 RSpec.describe User, type: :model do
-  describe "has a has_many association defined called 'sent_follow_requests' with Class name 'FollowRequest' and foreign key 'sender_id'", points: 2 do
+  describe "has a has_many association defined called 'sent_follow_requests' with Class name 'FollowRequest' and foreign key 'sender_id'", points: 1 do
     it { should have_many(:sent_follow_requests).class_name("FollowRequest").with_foreign_key("sender_id") }
   end
 end
 
 RSpec.describe User, type: :model do
-  describe "has a has_many association defined called 'received_follow_requests' with Class name 'FollowRequest' and foreign key 'recipient_id'", points: 2 do
+  describe "has a has_many association defined called 'received_follow_requests' with Class name 'FollowRequest' and foreign key 'recipient_id'", points: 1 do
     it { should have_many(:received_follow_requests).class_name("FollowRequest").with_foreign_key("recipient_id") }
+  end
+end
+
+RSpec.describe User, type: :model do
+  describe "has a has_many association defined called 'accepted_sent_follow_requests' with scope where 'status' is \"accepted\"", points: 0 do
+    it { should have_many(:accepted_sent_follow_requests).class_name("FollowRequest").with_foreign_key("sender_id").conditions(:status => "accepted" ) }
+  end
+end
+
+RSpec.describe User, type: :model do
+  describe "has a has_many association defined called 'accepted_received_follow_requests' with scope where 'status' is \"accepted\"", points: 0 do
+    it { should have_many(:accepted_received_follow_requests).class_name("FollowRequest").with_foreign_key("recipient_id").conditions(:status => "accepted" ) }
+  end
+end
+
+RSpec.describe User, type: :model do
+  describe "has a has_many (many-to_many) association defined called 'followers' through 'accepted_received_follow_requests' and source 'sender'", points: 0 do
+    it { should have_many(:followers).through(:accepted_received_follow_requests).source(:sender) }
+  end
+end
+
+RSpec.describe User, type: :model do
+  describe "has a has_many (many-to_many) association defined called 'leaders' through 'accepted_sent_follow_requests' and source 'recipient'", points: 0 do
+    it { should have_many(:leaders).through(:accepted_sent_follow_requests).source(:recipient) }
+  end
+end
+
+RSpec.describe User, type: :model do
+  describe "has a has_many (many-to_many) association defined called 'feed' through 'leaders' and source 'own_photos'", points: 0 do
+    it { should have_many(:feed).through(:leaders).source(:own_photos) }
+  end
+end
+RSpec.describe User, type: :model do
+  describe "has a has_many (many-to_many) association defined called 'discover' through 'leaders' and source 'liked_photos'", points: 0 do
+    it { should have_many(:discover).through(:leaders).source(:liked_photos) }
   end
 end
