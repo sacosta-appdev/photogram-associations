@@ -11,25 +11,11 @@
 #
 
 class Comment < ApplicationRecord
-  # validates(:commenter, { :presence => true })
+  # Association accessor methods to define:
+  
+  ## Direct associations
 
-  # def commenter
-  #   my_author_id = self.author_id
+  # Comment#commenter: returns a row from the users table associated to this comment by the author_id column
 
-  #   matching_users = User.where({ :id => my_author_id })
-
-  #   the_user = matching_users.at(0)
-
-  #   return the_user
-  # end
-
-  # def photo
-  #   my_photo_id = self.photo_id
-
-  #   matching_photos = User.where({ :id => my_photo_id })
-
-  #   the_photo = matching_photos.at(0)
-
-  #   return the_photo
-  # end
+  # Comment#photo: returns a row from the photos table associated to this comment by the photo_id column
 end
