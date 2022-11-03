@@ -15,7 +15,7 @@ class Comment < ApplicationRecord
   
   ## Direct associations
 
-  # Comment#author: returns a row from the users table associated to this like by the author_id column
+  # Comment#commenter: returns a row from the users table associated to this comment by the author_id column
 
-  # Comment#photo: returns a row from the photos table associated to this like by the photo_id column
+  # Comment#photo: returns a row from the photos table associated to this comment by the photo_id column
 end
