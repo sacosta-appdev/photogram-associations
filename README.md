@@ -8,4 +8,4 @@ Use this tool to help plan out your new association methods:
 
 [https://association-accessors.firstdraft.com/](https://association-accessors.firstdraft.com/)
 
-Note that the above tool doesn't yet support Scoped Associations. As a stretch goal, [read up on them here](https://remimercier.com/scoped-active-record-associations/) and see if you can figure out how to use them to build `leaders`, `feed`, and `discover`.
+Note that the above tool doesn't yet support Scoped Associations. As a stretch goal, [read up on them here](https://remimercier.com/scoped-active-record-associations/) and see if you can figure out how to use them to build `accepted_sent_friend_requests`, `leaders`, `feed`, and `discover`.
